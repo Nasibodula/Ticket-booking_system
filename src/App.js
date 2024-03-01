@@ -1,23 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
+import Homepage from './pages/Homepage';
+import Host from './pages/HostEventForm';
+import Contact from './Layouts/Contact';
+import Landingpage from './Layouts/Landingpage';
+import AllEvents from './Events/AllEvents';
+import Attended from './Events/Attended';
+import Hosted from './Events/Hosted';
+// import Login from './Layouts/Login';
+// import Signup from './Layouts/Signup';
+// import Navbar from './components/Navbar';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Homepage/>}/>
+          <Route path='/host' element={<Host/>}/>
+          <Route path='/contact' element={<Contact/>}/>
+          <Route path='/landingpage' element={<Landingpage/>}/>
+          <Route path='/allevents' element={<AllEvents/>}/>
+          <Route path='/events/attended' element={<Attended/>}/>
+          <Route path='/events/hosted' element={<Hosted/>}/>
+
+
+        </Routes>
+
+      </Router>
     </div>
   );
 }

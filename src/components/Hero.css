@@ -1,0 +1,27 @@
+.hero{
+    display: flex;
+    flex-direction: row; 
+    width: auto;
+    height: 90vh;
+    background: rgb(152, 167, 165);
+    margin: 0rem 1rem 0rem 1rem;
+    overflow-x: hidden;
+    gap: 4rem;
+    padding: 5rem 1rem 0rem 3rem;
+
+}
+.hero .headcontainer{
+    position: relative;
+    justify-content:center ;
+    gap: 1rem;
+    align-items: center;
+}
+.hero .headcontainer h1{
+    margin-bottom: 4px;
+    /* font-weight: 900; */
+}
+.heroimage{
+    position: relative;
+    width: 55rem;
+    height: 80vh;
+}

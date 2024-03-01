@@ -1,0 +1,32 @@
+.contact h1,.contact h3{
+    color: rgb(99, 107, 106);
+}
+
+.contactcontainer{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+.lottie{
+    height: 25rem;
+    width: 40rem;
+}
+.contactcontainer form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 2rem;
+}
+.contactcontainer form input{
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+/* .contactcontainer form input:focus{
+    border: 1px solid grey;
+} */
+@media only screen and (max-width: 1024px) {
+    .contactcontainer form input{
+        padding: 0.3rem 0.5rem;
+    }
+
+}

@@ -1,0 +1,40 @@
+.landing{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    gap: 5rem;
+    margin-top: 2rem;
+}
+.landing .animation{
+    width: 30rem;
+    height: auto;
+}
+.landing .landingheader {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.landingheader h1 {
+    position: absolute;
+    left: 3rem;
+}
+
+.landingheader a {
+    text-decoration: none;
+    color: black;
+    display: flex; 
+    align-items: center; 
+    gap: 3px;
+}
+.landingheader .link{
+    position: absolute;
+    right: 5rem;
+}
+.landingheader button{
+    padding: 0.5rem 2rem;
+    margin-left: 1rem;
+}
