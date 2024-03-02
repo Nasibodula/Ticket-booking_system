@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import './Eventcards.css'
 import { FaMapMarkerAlt, FaClock  } from 'react-icons/fa';
 import foodmood from '../assets/images/food-mood.jpg'
@@ -17,7 +18,7 @@ const EventCards = ({ image,description,time, location, cost}) => {
       <h3>{description}</h3>
       <p><FaClock /> {time}</p>
       <p><FaMapMarkerAlt/> {location}</p>
-      <button>Get Ticket</button>
+      <Link to='/events/book'><button>Get Ticket</button></Link>
       <p>{cost}</p>
     </div>
   </div>  

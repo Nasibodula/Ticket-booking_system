@@ -39,7 +39,7 @@ export default function Host() {
  return (
    <div>
     <Navbar/>
-    {!isHosted ? (
+    {/* {!isHosted ? ( */}
     <div className='host'>
      <div className='hostcontainer'>
          <form className='hostdetails' onSubmit={handleSubmit}>
@@ -73,15 +73,6 @@ export default function Host() {
        {errorMessage && <div className="error-message">{errorMessage}</div>}
        </div>
        </div> 
-       ) : (
-        <Hosted
-          eventName={eventName}
-          eventDate={eventDate}
-          venue={venue}
-          participantLimit={participantLimit}
-          detailedDescription={detailedDescription}
-        />
-      )}
     </div>
   )
 }

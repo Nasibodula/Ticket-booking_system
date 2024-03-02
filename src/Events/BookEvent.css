@@ -1,0 +1,19 @@
+.bookcontainer{
+    display: flex;
+    justify-content: center;
+    padding-top: 5rem ;
+
+}
+.bookcontainer form{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: auto;
+    padding: 3rem 5rem;
+    border: 2px solid grey;
+    gap: 1rem;
+}
+form input, form select{
+    padding: 0.5rem 2rem;
+    padding: 0.3rem;
+}
