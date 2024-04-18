@@ -8,8 +8,9 @@ import AllEvents from './Events/AllEvents';
 import Attended from './Events/Attended';
 import Hosted from './Events/Hosted';
 import BookEvent from './Events/BookEvent';
-// import Login from './Layouts/Login';
-// import Signup from './Layouts/Signup';
+import Login from './Layouts/Login';
+import Signup from './Layouts/Signup';
+import Navbar from './components/Navbar';
 // import Navbar from './components/Navbar';
 
 
@@ -17,6 +18,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <Navbar/>
         <Routes>
           <Route path='/' element={<Homepage/>}/>
           <Route path='/host' element={<Host/>}/>
@@ -26,6 +28,8 @@ function App() {
           <Route path='/events/attended' element={<Attended/>}/>
           <Route path='/events/hosted' element={<Hosted/>}/>
           <Route path='/events/book' element={<BookEvent/>}/>
+          <Route path='/Login' element={<Login/>}/>
+          <Route path='/Signup' element={<Signup/>}/>
 
 
         </Routes>

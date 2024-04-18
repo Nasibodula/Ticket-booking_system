@@ -33,7 +33,6 @@
   
   .eventcard-body {
     padding-left: 10px;
-    
   }
   
   .eventcard-body h3 {
@@ -42,7 +41,7 @@
   }
   
   .eventcard-body p {
-    margin-bottom: 2px;
+   margin-bottom: 2px;
   }
   .eventcard-body button {
     padding: 0.2rem 0.8rem;

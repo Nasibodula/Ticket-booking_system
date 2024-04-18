@@ -1,5 +1,4 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
 import './Contact.css'
 import Lottie from 'lottie-react'
 import contactanimation from '../animation1.json'
@@ -7,7 +6,6 @@ import contactanimation from '../animation1.json'
 export default function Contact() {
   return (
     <div>
-      <Navbar/>
       <div className='contact'>
         <h3>DROP US A</h3>
         <h1>MESSAGE</h1>

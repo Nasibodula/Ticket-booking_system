@@ -1,78 +1,75 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
-import './HostEventForm.css'
-import { useState } from 'react';
-import Hosted from '../Events/Hosted';
+import {useState} from 'react';
+import './HostEventForm.css';
 
-export default function Host() {
-  const [eventName, setEventName] = useState('');
-  const [eventDate, setEventDate] = useState('');
-  const [venue, setVenue] = useState('');
-  const [participantLimit, setParticipantLimit] = useState('');
-  const [shortDescription, setShortDescription] = useState('');
-  const [detailedDescription, setDetailedDescription] = useState('');
+const HostEventForm = () =>{
+  const [eventtitle, setEventtitle] = useState('');
+  const [eventname, setEventname] = useState('');
+  const [eventdate, setEventdate] = useState('');
+  const [eventvenue, setEventvenue] = useState('');
+  const [eventcost, setEventcost] = useState('');
+  const [eventlimit, setEventlimit] = useState('');
+  const [eventdescription, setEventdescription] = useState('');
+  const [eventimage, setEventimage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-  const [isHosted, setIsHosted] = useState(false);
+  const [error, setError] = useState(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    if (eventName && eventDate && venue && participantLimit && detailedDescription) {
-      // Clear any previous messages
-      setSuccessMessage('');
-      setErrorMessage('');
-      // Display success message
-      setSuccessMessage('Event successfully hosted!');
-      // Clear form fields
-      setEventName('');
-      setEventDate('');
-      setVenue('');
-      setParticipantLimit('');
-      setShortDescription('');
-      setDetailedDescription('');
-      setIsHosted(true);
-    } else {
-      setErrorMessage('Please fill in all the fields');
+
+    const event = {eventtitle, eventname, eventdate, eventvenue, eventcost, eventlimit, eventdescription, eventimage}
+    const response = await fetch('/api/events', {
+      method: 'POST',
+      body: JSON.stringify(event),
+      headers:{
+        'Content-Type': 'Application/json'
+      }
+    })
+    const json = await response.json()
+
+    if (!response.ok) {
+      setError(json.error)
     }
-  };
+    if (response.ok) {
+      setError(null)
+      setEventname('');
+      setEventdate('');
+      setEventvenue('');
+      setEventlimit('');
+      setEventdescription('');
+      console.log('new event added:', json)
+    }
+
+  }
+
 
  return (
    <div>
-    <Navbar/>
     {/* {!isHosted ? ( */}
     <div className='host'>
-     <div className='hostcontainer'>
-         <form className='hostdetails' onSubmit={handleSubmit}>
-           <h1>Host Details</h1>
-           <input type='text' placeholder='Your Name'/>
-           <input type='email' placeholder='Your Email'/>
-           <input type='phone' placeholder='Your Phone'/>
-           <input type='location' placeholder='From'/>
-         </form>  
-      
+     <div className='hostcontainer'> 
       <form  onSubmit={handleSubmit} className='eventdetails'>
         <h1>Event Details</h1>
-      <select id="dropdown">
-        <option value="" disabled selected hidden>Event Tittle</option>
-        <option value="option1">Business</option>
-        <option value="option2">Concert</option>
-        <option value="option3">Sport</option>
-        <option value="option3">Conference</option>
-        <option value="option3">Festival</option>
-        <option value="option3">Food $ Drink</option>
+      <select id="dropdown" value={eventtitle} onChange={(e)=> setEventtitle(e.target.value)}>
+        <option value={eventtitle} onChange={(e)=> setEventtitle(e.target.value)} disabled selected hidden>Event Tittle</option>
+        <option value={eventtitle} onChange={(e)=> setEventtitle(e.target.value)}>Business</option>
+        <option  value={eventtitle} onChange={(e)=> setEventtitle(e.target.value)}>Concert</option>
+        <option  value={eventtitle} onChange={(e)=> setEventtitle(e.target.value)}>Sport</option>
+        <option  value={eventtitle} onChange={(e)=> setEventtitle(e.target.value)}>Conference</option>
+        <option  value={eventtitle} onChange={(e)=> setEventtitle(e.target.value)}>Festival</option>
+        <option  value={eventtitle} onChange={(e)=> setEventtitle(e.target.value)}>Food $ Drink</option>
       </select>
-          <input type="text" value={eventName} onChange={(e) => setEventName(e.target.value)} placeholder='Event name'/>
-          <input type="date" value={eventDate} onChange={(e) => setEventDate(e.target.value)} />
-          <input type="text" value={venue} onChange={(e) => setVenue(e.target.value)} placeholder='Venue'/>
-          <input type="number" value={participantLimit} onChange={(e) => setParticipantLimit(e.target.value)} placeholder='Participant limit'/>
-          <textarea value={detailedDescription} onChange={(e) => setDetailedDescription(e.target.value)}  placeholder='Description'/>
+          <input type="text" value={eventname} onChange={(e) => setEventname(e.target.value)} placeholder='Event name' required/>
+          <input type="date" value={eventdate} onChange={(e) => setEventdate(e.target.value)}  required/>
+          <input type="text" value={eventvenue} onChange={(e) => setEventvenue(e.target.value)} placeholder='Venue' required/>
+          <input type="number" value={eventcost} onChange={(e) => setEventcost(e.target.value)} placeholder='cost' required/>
+          <input type="number" value={eventlimit} onChange={(e) => setEventlimit(e.target.value)} placeholder='Participant limit' required/>
+          <textarea value={eventdescription} onChange={(e) => setEventdescription(e.target.value)}  placeholder='Description' required/>
         <button type="submit">Host</button>
-
+        {error && <div className="error">{error}</div>}
        </form>
-       {successMessage && <div className="success-message">{successMessage}</div>}
-       {errorMessage && <div className="error-message">{errorMessage}</div>}
        </div>
        </div> 
     </div>
   )
 }
+export default HostEventForm

@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "./Navbar.css";
 import { MdKeyboardArrowDown } from 'react-icons/md'
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link } from "react-router-dom";
 
 function DropdownMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,7 +42,7 @@ function Navbar() {
         <DropdownMenu />
         <Link to="/contact">Contact us</Link>
         <Link to="/host">Host</Link>
-        <button><Link to="/landingpage">Log out</Link></button>
+        <Link to="/landingpage"><button>Log out</button></Link>
         <button className="nav-btn nav-close-btn" onClick={showNavbar}>
           <FaTimes />
         </button>

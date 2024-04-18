@@ -1,5 +1,4 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import CardList from '../components/Cards'
 import EventCardList from '../components/Eventcards'
@@ -11,7 +10,6 @@ export default function Homepage() {
   
   return (
     <div>
-      <Navbar/>
       <Hero/>
       <CardList/>
       <EventCardList/>

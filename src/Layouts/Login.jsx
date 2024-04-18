@@ -1,65 +1,64 @@
-import React, { useEffect, useState } from "react"
-import axios from "axios"
-import { useNavigate, Link } from "react-router-dom"
+import React, { useState } from 'react';
+import './Login.css';
 
+const Login = () => {
+    const [isSignUp, setIsSignUp] = useState(false);
 
-function Login() {
-
-    const history=useNavigate();
-
-    const [email,setEmail]=useState('')
-    const [password,setPassword]=useState('')
-
-    async function submit(e){
-        e.preventDefault();
-
-        try{
-
-            await axios.post("http://localhost:8000/",{
-                email,password
-            })
-            .then(res=>{
-                if(res.data=="exist"){
-                    history("home",{state:{id:email}})
-                }
-                else if(res.data=="notexist"){
-                    alert("User have not sign up")
-                }
-            })
-            .catch(e=>{
-                alert("wrong details")
-                console.log(e);
-            })
-
-        }
-        catch(e){
-            console.log(e);
-
-        }
-
-    }
-
+    const toggleForm = () => {
+        setIsSignUp(!isSignUp);
+    };
 
     return (
-        <div className="login">
-
-            <h1>Login</h1>
-
-            <form action="POST">
-                <input type="email" onChange={(e) => { setEmail(e.target.value) }} placeholder="Email"  />
-                <input type="password" onChange={(e) => { setPassword(e.target.value) }} placeholder="Password"  />
-                <input type="submit" onClick={submit} />
-
-            </form>
-
-            <br />
-            <p>OR</p>
-            <br />
-
-            <Link to="/signup">Signup Page</Link>
-
+        <div className={`container ${isSignUp ? 'sign-up-active' : ''}`}>
+            <div className="form-container sign-up">
+            <form>
+                    <h1>Create Account</h1>
+                     <div class="social-icons">
+                         <a href="#" className="icon"><i className="fa-brands fa-google-plus-g"></i></a>
+                         <a href="#" className="icon"><i className="fa-brands fa-facebook-f"></i></a>
+                         <a href="#" className="icon"><i className="fa-brands fa-github"></i></a>
+                         <a href="#" className="icon"><i className="fa-brands fa-linkedin-in"></i></a>
+                     </div>
+                     <span>or use your email for registeration</span>
+                     <input type="text" placeholder="Name"/>
+                     <input type="email" placeholder="Email"/>
+                     <input type="password" placeholder="Password"/>   
+                     <button>Sign Up</button>
+                </form>
+            </div>
+            <div className="form-container sign-in">
+            <form>
+                    <h1>Sign In</h1>
+                    <div class="social-icons">
+                        <a href="#" className="icon"><i className="fa-brands fa-google-plus-g"></i></a>
+                        <a href="#" className="icon"><i className="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" className="icon"><i className="fa-brands fa-github"></i></a>
+                        <a href="#" className="icon"><i className="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                    <span>or use your email password</span>
+                    <input type="email" placeholder="Email"/>
+                    <input type="password" placeholder="Password"/>
+                    <a href="#">Forget Your Password?</a>
+                    <button>Sign In</button>
+                </form>
+            </div>
+            <div className="toggle-container">
+                <div className="toggle">
+                    <div className="toggle-panel toggle-left">
+                        <h1>Welcome Back!</h1>
+                        <p>Enter your personal details to use all site features</p>
+                        <button onClick={toggleForm}>Sign In</button>
+                        {}
+                    </div>
+                    <div className="toggle-panel toggle-right">
+                        <h1>Hello, Friend!</h1>
+                        <p>Register with your personal details to use all site features</p>
+                        <button onClick={toggleForm}>Sign Up</button>
+                    </div>
+                </div>
+            </div>
         </div>
-    )
-}
+    );
+};
 
-export default Login
+export default Login;
