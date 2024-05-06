@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import './HostEventForm.css';
+import Navbar from './components/Navbar';
 
 const HostEventForm = () =>{
   const [eventtitle, setEventtitle] = useState('');
@@ -45,6 +46,7 @@ const HostEventForm = () =>{
  return (
    <div>
     {/* {!isHosted ? ( */}
+   <Navbar/>
     <div className='host'>
      <div className='hostcontainer'> 
       <form  onSubmit={handleSubmit} className='eventdetails'>
