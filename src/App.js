@@ -10,7 +10,7 @@ import Hosted from './Events/Hosted';
 import BookEvent from './Events/BookEvent';
 import Login from './Layouts/Login';
 import Signup from './Layouts/Signup';
-import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar';
 // import Navbar from './components/Navbar';
 
 
