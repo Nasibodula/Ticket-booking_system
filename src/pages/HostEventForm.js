@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import './HostEventForm.css';
-import Navbar from './components/Navbar';
+import Navbar from '../components/Navbar';
 
 const HostEventForm = () =>{
   const [eventtitle, setEventtitle] = useState('');
