@@ -1,8 +1,10 @@
 .hero{
     display: flex;
     flex-direction: row; 
+    /* align-items: center; */
+    justify-content: center;
     width: auto;
-    height: 90vh;
+    height: 70vh;
     background: rgb(152, 167, 165);
     margin: 0rem 1rem 0rem 1rem;
     overflow-x: hidden;
@@ -12,16 +14,64 @@
 }
 .hero .headcontainer{
     position: relative;
-    justify-content:center ;
-    gap: 1rem;
-    align-items: center;
+    /* justify-content:center ; */
+    /* gap: 3rem; */
+    /* align-items: center; */
 }
 .hero .headcontainer h1{
-    margin-bottom: 4px;
-    /* font-weight: 900; */
+    /* margin-bottom: 4px; */
+    font-weight: 700;
+    font-size: 4rem;
+}
+.hero .headcontainer p{
+    font-weight: 500;
+    font-size: 2rem;
 }
 .heroimage{
-    position: relative;
+    position:relative;
     width: 55rem;
-    height: 80vh;
+    height: 65vh;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column; /* Stack content vertically */
+        height: auto;
+        padding: 2rem 1rem; /* Reduce padding */
+        gap: 2rem; /* Reduce gap */
+    }
+    
+    .hero .headcontainer h1 {
+        font-size: 2.5rem; /* Decrease heading font size */
+    }
+    
+    .hero .headcontainer p {
+        font-size: 1.5rem; /* Decrease paragraph font size */
+    }
+
+    .heroimage {
+        width: 100%; /* Make image responsive to screen size */
+        height: auto;
+    }
+}
+
+/* Media queries for very small screens (mobile phones, less than 480px) */
+@media (max-width: 480px) {
+    .hero {
+        padding: 1rem; /* Further reduce padding */
+        gap: 1rem;
+    }
+    
+    .hero .headcontainer h1 {
+        font-size: 2rem; /* Further decrease heading font size */
+    }
+    
+    .hero .headcontainer p {
+        font-size: 1.2rem; /* Further decrease paragraph font size */
+    }
+
+    .heroimage {
+        width: 100%;
+        height: auto;
+    }
 }

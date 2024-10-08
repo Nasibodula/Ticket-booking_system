@@ -19,14 +19,14 @@ a{
 }
 
 header {
+	position: relative;
+	z-index: 1000;
 	display: flex;
-	/* align-items: center; */
+	align-items: center;
 	justify-content: space-between;
 	height: 10vh;
 	padding: 1.5rem 2rem;
 	overflow: hidden;
-	/* background: rgb(70, 69, 69); */
-	/* color: var(--textcolor); */
 	color: black;
 }
 header nav {

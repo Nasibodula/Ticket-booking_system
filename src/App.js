@@ -10,15 +10,13 @@ import Hosted from './Events/Hosted';
 import BookEvent from './Events/BookEvent';
 import Login from './Layouts/Login';
 import Signup from './Layouts/Signup';
-// import Navbar from './components/Navbar';
-// import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar'
 
 
 function App() {
   return (
     <div className="App">
       <Router>
-        // <Navbar/>
         <Routes>
           <Route path='/' element={<Homepage/>}/>
           <Route path='/host' element={<Host/>}/>
